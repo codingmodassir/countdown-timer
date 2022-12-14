@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mcodexpro</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="./main.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="coundown">
+      <h1>
+        <span class="hour" data-value="00" data-match="0">00</span>
+        <span class="minut" data-value="00" data-match="0">00</span>
+        <span class="second" data-value="00" data-match="0">00</span>
+      </h1>
+    </div>
+    <div class="content">
+      <div class="group">
+        <div>Hours</div>
+        <div class="coundown_picker" data-limit="24"></div>
+      </div>
+      <div class="group">
+        <div>Minutes</div>
+        <div class="coundown_picker" data-limit="60"></div>
+      </div>
+      <div class="group">
+        <div>Seconds</div>
+        <div class="coundown_picker" data-limit="60"></div>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="start">start</button>
+      <button class="stop">stop</button>
+      <button class="reset">reset</button>
+    </div>
+  </div>
+</body>
+</html>

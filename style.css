@@ -1,0 +1,133 @@
+:root {
+   --animate-blink: blink 1s steps(2, start) infinite;
+   --color-primary: #4285F4;
+   --border-primary: 1px solid #8888b3;
+   --danger-highlight: #f16514;
+   --success-highlight: #09c409;
+   --hover-picker-bg: #fcfbfb;
+   --container-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1),
+                           0px 10px 15px rgba(0, 0, 0, 0.2);
+}
+@font-face { /* Include sevenSegment font */
+   font-family: sevenSegment;
+   src: url(./font/seven-segment.ttf);
+}
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-weight: 500;
+   font-family: sevenSegment;
+}
+body {
+   height: 100vh;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: var(--color-primary);
+}
+.container {
+   width: 500px;
+   border-radius: 8px;
+   background-color: #fff;
+   box-shadow: var(--container-box-shadow);
+}
+.coundown {
+   height: 151px;
+   text-align: center;
+   border-bottom: 1px solid #ccc;
+}
+.coundown h1 {
+   width: 100%;
+   padding: 8px 0;
+   border-radius: 6px;
+   user-select: none;
+   color: var(--color-primary);
+   background-color: #222;
+}
+.coundown span {
+   font-size: 2em;
+   margin: 0 16px;
+   position: relative;
+}
+.coundown span:not(.coundown span:last-child)::after {
+   content: ":";
+   position: absolute;
+   top: -13px;
+   margin-left: 10px;
+}
+.coundown h1.active span::after {
+   animation: var(--animate-blink);
+}
+.coundown h1.danger span {
+   color: var(--danger-highlight);
+   animation: var(--animate-blink);
+}
+.coundown h1.stop span {
+   color: var(--danger-highlight);
+}
+@keyframes blink {
+   to {
+      visibility: hidden;
+   }
+}
+.content {
+   user-select: none;
+   border-bottom: 1px solid #ccc;
+}
+.group {
+   width: 100%;
+   margin: 0 8px;
+   text-align: center;
+}
+.coundown_picker {
+   height: 44px;
+   border-radius: 6px;
+   margin-top: 5px;
+   overflow: auto;
+   cursor: pointer;
+   scroll-behavior: smooth;
+   transition: all 0.3s linear;
+   border: var(--border-primary);
+}
+.coundown_picker div {
+   line-height: 44px;
+   font-size: 22px;
+}
+::-webkit-scrollbar {
+   width: 0px;
+}
+.coundown_picker:hover {
+   background-color: var(--hover-picker-bg);
+}
+.controls button {
+   width: 100%;
+   margin: 0 8px;
+   height: 44px;
+   border-radius: 6px;
+   outline: none;
+   color: #fff;
+   cursor: pointer;
+   font-size: 17px;
+   opacity: 0.7;
+   pointer-events: none;
+   border: var(--border-primary);
+   background-color: var(--color-primary);
+}
+.controls button:hover {
+   background-color: #3374dd;
+}
+.controls.active button {
+   opacity: 1;
+   pointer-events: all;
+}
+
+.coundown, .content, .controls {
+   padding: 22px;
+}
+.coundown, .coundown h1, .content, .controls {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
